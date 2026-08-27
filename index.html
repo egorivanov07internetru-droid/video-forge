@@ -14,146 +14,50 @@
 body {
     margin: 0;
     min-height: 100vh;
-    background:
-        radial-gradient(circle at 50% -15%, #352274 0%, #08090d 43%);
-    color: #ffffff;
+    background: #08090d;
+    color: white;
     font-family: Arial, sans-serif;
 }
 
-/* HEADER */
-
 header {
-    height: 70px;
+    height: 65px;
     padding: 0 20px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     border-bottom: 1px solid #292d39;
-    background: rgba(8, 9, 13, 0.92);
-
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    background: #08090d;
 }
 
 .logo {
     font-size: 21px;
-    font-weight: 800;
+    font-weight: bold;
 }
 
 .logo span {
-    color: #9178ff;
+    color: #9278ff;
 }
 
-.menu-button {
-    width: 45px;
-    height: 45px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
+.menu {
+    width: 42px;
+    height: 42px;
 
     border: 1px solid #292d39;
     border-radius: 12px;
 
-    background: #12141b;
-    cursor: pointer;
-}
-
-.menu-button span {
-    width: 21px;
-    height: 2px;
-    background: white;
-    border-radius: 5px;
-}
-
-/* MENU */
-
-.menu {
-    position: fixed;
-    top: 0;
-    right: -310px;
-
-    width: 290px;
-    height: 100vh;
-
-    padding: 85px 20px 20px;
-
-    background: #101219;
-    border-left: 1px solid #292d39;
-
-    z-index: 20;
-
-    transition: right .25s ease;
-}
-
-.menu.open {
-    right: 0;
-}
-
-.close {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-
-    width: 40px;
-    height: 40px;
-
-    border: 1px solid #292d39;
-    border-radius: 10px;
-
-    background: #171923;
+    background: #101218;
     color: white;
 
     font-size: 22px;
     cursor: pointer;
 }
 
-.menu h2 {
-    margin-top: 0;
-}
-
-.menu-button-item {
-    width: 100%;
-    margin-top: 12px;
-
-    padding: 14px;
-
-    border: 1px solid #292d39;
-    border-radius: 12px;
-
-    background: #171923;
-    color: white;
-
-    text-align: left;
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
-.menu-button-item:hover {
-    background: #211d32;
-}
-
-.premium-menu {
-    border-color: #765cff;
-    background: linear-gradient(
-        135deg,
-        #211b42,
-        #151320
-    );
-    color: #c9beff;
-}
-
-/* MAIN */
-
 main {
-    max-width: 950px;
+    width: min(850px, 92%);
     margin: auto;
-    padding: 55px 18px 80px;
+    padding: 45px 0 70px;
 }
 
 .hero {
@@ -161,11 +65,8 @@ main {
 }
 
 .hero h1 {
-    margin: 0 0 15px;
-
-    font-size: clamp(42px, 8vw, 70px);
-
-    letter-spacing: -3px;
+    font-size: clamp(40px, 9vw, 65px);
+    margin: 0;
 }
 
 .hero h1 span {
@@ -173,104 +74,87 @@ main {
 }
 
 .hero p {
-    max-width: 650px;
-    margin: auto;
-
-    color: #969cac;
-
+    color: #9297a5;
     line-height: 1.6;
 }
 
-/* CARD */
 
-.card {
-    margin-top: 40px;
+/* ГЕНЕРАТОР */
 
-    padding: 22px;
+.generator {
+    margin-top: 35px;
+    padding: 25px;
 
-    background: linear-gradient(
-        180deg,
-        #141720,
-        #0f1117
-    );
-
+    background: #101218;
     border: 1px solid #292d39;
     border-radius: 20px;
 }
 
 label {
     display: block;
+    margin-bottom: 10px;
 
-    margin-bottom: 9px;
-
-    color: #c2c5cf;
-
-    font-size: 13px;
+    color: #c8cbd4;
     font-weight: bold;
 }
 
-textarea,
-input,
-select {
-    width: 100%;
-
-    padding: 14px;
-
-    background: #090b10;
-    color: white;
-
-    border: 1px solid #292d39;
-    border-radius: 13px;
-
-    font: inherit;
-    outline: none;
-}
-
 textarea {
-    height: 175px;
+    width: 100%;
+    min-height: 150px;
+
+    padding: 16px;
+
     resize: vertical;
 
-    line-height: 1.5;
+    background: #08090d;
+    color: white;
+
+    border: 1px solid #303442;
+    border-radius: 14px;
+
+    outline: none;
+
+    font-size: 15px;
 }
 
-textarea:focus,
-input:focus,
-select:focus {
+textarea:focus {
     border-color: #8068ff;
 }
 
-.row {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 12px;
-
-    margin-top: 16px;
+.duration {
+    margin-top: 20px;
 }
 
-/* BUTTON */
+select {
+    width: 100%;
+    padding: 15px;
+
+    background: #08090d;
+    color: white;
+
+    border: 1px solid #303442;
+    border-radius: 14px;
+
+    font-size: 15px;
+}
 
 .generate {
     width: 100%;
-
-    margin-top: 16px;
-
-    padding: 15px;
+    margin-top: 20px;
+    padding: 17px;
 
     border: 0;
-    border-radius: 13px;
+    border-radius: 14px;
 
-    background:
-        linear-gradient(
-            135deg,
-            #7c5cff,
-            #6045e5
-        );
+    background: linear-gradient(
+        135deg,
+        #8068ff,
+        #5d43d8
+    );
 
     color: white;
 
-    font-size: 15px;
+    font-size: 16px;
     font-weight: bold;
 
     cursor: pointer;
@@ -280,160 +164,187 @@ select:focus {
     filter: brightness(1.1);
 }
 
-.generate:disabled {
-    opacity: .5;
-    cursor: not-allowed;
+
+/* PREMIUM */
+
+.premium-box {
+    margin-top: 20px;
+    padding: 18px;
+
+    border: 1px solid #302a4d;
+    border-radius: 16px;
+
+    background: #151322;
 }
 
-/* PROGRESS */
+.premium-status {
+    color: #c9beff;
+    font-weight: bold;
+}
 
-.progress {
+.premium-button {
+    display: block;
+
+    margin-top: 12px;
+    padding: 14px;
+
+    border-radius: 12px;
+
+    background: #29213f;
+    color: #c9beff;
+
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* PREMIUM-ФУНКЦИЯ */
+
+.skip-box {
     display: none;
 
     margin-top: 20px;
+    padding: 18px;
+
+    background: #151322;
+    border: 1px solid #8068ff;
+    border-radius: 16px;
 }
 
-.progress.show {
+.skip-box.show {
     display: block;
 }
 
-.progress-line {
-    display: flex;
-
-    justify-content: space-between;
-
-    color: #a1a5b1;
-
-    font-size: 12px;
-}
-
-.bar {
-    height: 9px;
-
-    margin-top: 10px;
-
-    background: #252833;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-}
-
-.fill {
-    width: 0%;
-    height: 100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #7c5cff,
-            #b49fff
-        );
-
-    transition: width .25s;
-}
-
-/* PREMIUM SKIP */
-
-.skip {
+.skip-button {
     width: 100%;
-
-    margin-top: 12px;
-
-    padding: 13px;
+    padding: 14px;
 
     border: 1px solid #8068ff;
     border-radius: 12px;
 
-    background: #171923;
-
-    color: #c5baff;
+    background: #201a35;
+    color: #c9beff;
 
     font-weight: bold;
-
     cursor: pointer;
 }
 
-.skip:hover {
-    background: #211d31;
-}
 
-.skip small {
-    color: #8d82b9;
-}
+/* ВИДЕО */
 
-/* RESULT */
-
-.result {
+.video-box {
     display: none;
 
     margin-top: 25px;
 }
 
-.result.show {
+.video-box.show {
     display: block;
 }
 
-video {
+.video-box video {
     width: 100%;
 
-    max-height: 600px;
+    background: black;
 
-    border-radius: 15px;
-
-    background: #000;
-
-    border: 1px solid #292d39;
+    border-radius: 16px;
 }
 
-.download {
-    display: block;
+.video-placeholder {
+    padding: 60px 20px;
 
-    margin-top: 12px;
-
-    padding: 14px;
+    background: #050608;
+    border-radius: 16px;
 
     text-align: center;
 
-    border-radius: 12px;
+    color: #777c89;
+}
 
-    background: #20232e;
+
+/* МЕНЮ */
+
+.menu-panel {
+    display: none;
+
+    position: fixed;
+    top: 75px;
+    right: 15px;
+
+    width: 240px;
+
+    padding: 12px;
+
+    background: #11131a;
+
+    border: 1px solid #292d39;
+    border-radius: 16px;
+
+    z-index: 100;
+}
+
+.menu-panel.show {
+    display: block;
+}
+
+.menu-panel a {
+    display: block;
+
+    padding: 14px;
 
     color: white;
 
     text-decoration: none;
 
-    font-weight: bold;
+    border-radius: 10px;
 }
 
-.note {
-    margin-top: 18px;
-
-    color: #747987;
-
-    font-size: 12px;
-
-    line-height: 1.5;
+.menu-panel a:hover {
+    background: #1d2029;
 }
 
-/* MOBILE */
 
-@media (max-width: 650px) {
+/* ГЕНЕРАЦИЯ */
 
-    .row {
-        grid-template-columns: 1fr;
-    }
+.loading {
+    display: none;
 
-    main {
-        padding-top: 40px;
+    margin-top: 20px;
+
+    text-align: center;
+    color: #9da2af;
+}
+
+.loading.show {
+    display: block;
+}
+
+.spinner {
+    width: 35px;
+    height: 35px;
+
+    margin: 0 auto 12px;
+
+    border: 4px solid #292d39;
+    border-top-color: #9278ff;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
     }
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- HEADER -->
 
 <header>
 
@@ -442,307 +353,276 @@ video {
     </div>
 
     <button
-        class="menu-button"
-        onclick="openMenu()"
-        aria-label="Открыть меню"
+        class="menu"
+        onclick="toggleMenu()"
     >
-        <span></span>
-        <span></span>
-        <span></span>
+        ☰
     </button>
 
 </header>
 
 
-<!-- MENU -->
+<!-- МЕНЮ -->
 
 <div
-    class="menu"
-    id="menu"
+    id="menuPanel"
+    class="menu-panel"
 >
 
-    <button
-        class="close"
-        onclick="closeMenu()"
-    >
-        ×
-    </button>
-
-    <h2>Меню</h2>
-
-    <button
-        class="menu-button-item premium-menu"
-        onclick="getPremium()"
-    >
+    <a href="premium.html">
         👑 Получить Premium
-    </button>
+    </a>
 
-    <button
-        class="menu-button-item"
-        onclick="showAbout()"
-    >
-        ℹ️ О VideoForge
-    </button>
+    <a href="#">
+        ⚙️ Настройки
+    </a>
 
 </div>
 
 
-<!-- MAIN -->
-
 <main>
 
-<section class="hero">
 
-    <h1>
-        Создай <span>видео</span>
-    </h1>
+    <section class="hero">
 
-    <p>
-        Опиши, что должно происходить в видео,
-        выбери длительность — и AI создаст ролик.
-    </p>
+        <h1>
+            Video<span>Forge</span>
+        </h1>
 
-</section>
+        <p>
+            Создай видео из своей идеи
+            с помощью искусственного интеллекта.
+        </p>
 
-
-<section class="card">
-
-    <label>
-        🎬 О чём будет видео?
-    </label>
-
-    <textarea
-        id="prompt"
-        placeholder="Например: огромный чёрный дракон летит над средневековым городом ночью, вокруг молнии, кинематографичная камера, реалистичный стиль..."
-    ></textarea>
+    </section>
 
 
-    <div class="row">
+    <section class="generator">
 
-        <div>
+        <label>
+            🎬 Опиши своё видео
+        </label>
 
-            <label>
-                ⏱ Длительность
-            </label>
-
-            <input
-                id="duration"
-                type="number"
-                min="2"
-                max="10"
-                value="5"
-            >
-
-        </div>
+        <textarea
+            id="prompt"
+            placeholder="Например: Огромный дракон летит над городом будущего..."
+        ></textarea>
 
 
-        <div>
+        <div class="duration">
 
             <label>
-                📐 Формат
+                ⏱️ Длительность
             </label>
 
-            <select id="ratio">
+            <select id="duration">
 
-                <option value="16:9">
-                    16:9 — YouTube
+                <option value="5">
+                    5 секунд
                 </option>
 
-                <option value="9:16">
-                    9:16 — Shorts
+                <option value="10">
+                    10 секунд
                 </option>
 
-                <option value="1:1">
-                    1:1 — Квадрат
+                <option value="15">
+                    15 секунд
+                </option>
+
+                <option value="30">
+                    30 секунд
+                </option>
+
+                <option value="60">
+                    60 секунд
                 </option>
 
             </select>
 
         </div>
 
-    </div>
-
-
-    <button
-        class="generate"
-        id="generateButton"
-        onclick="generateVideo()"
-    >
-        ✦ СГЕНЕРИРОВАТЬ ВИДЕО
-    </button>
-
-
-    <!-- PROGRESS -->
-
-    <div
-        class="progress"
-        id="progress"
-    >
-
-        <div class="progress-line">
-
-            <span id="statusText">
-                Подготовка...
-            </span>
-
-            <span id="percent">
-                0%
-            </span>
-
-        </div>
-
-
-        <div class="bar">
-
-            <div
-                class="fill"
-                id="fill"
-            ></div>
-
-        </div>
-
 
         <button
-            class="skip"
-            onclick="skipLoading()"
+            class="generate"
+            onclick="generateVideo()"
         >
-
-            ⚡ Пропустить загрузку
-
-            <br>
-
-            <small>
-                👑 PREMIUM!
-            </small>
-
+            🎬 Сгенерировать видео
         </button>
 
-    </div>
+
+        <!-- PREMIUM -->
+
+        <div class="premium-box">
+
+            <div
+                id="premiumStatus"
+                class="premium-status"
+            >
+                🔒 Premium не активирован
+            </div>
+
+            <a
+                id="premiumLink"
+                class="premium-button"
+                href="premium.html"
+            >
+                👑 Получить Premium
+            </a>
+
+        </div>
 
 
-    <!-- RESULT -->
+        <!-- PREMIUM ФУНКЦИЯ -->
 
-    <div
-        class="result"
-        id="result"
-    >
-
-        <label>
-            🎥 Готовое видео
-        </label>
-
-        <video
-            id="videoPlayer"
-            controls
-            playsinline
-        ></video>
-
-        <a
-            id="downloadButton"
-            class="download"
-            download="videoforge-video.mp4"
+        <div
+            id="skipBox"
+            class="skip-box"
         >
-            ⬇ Скачать видео
-        </a>
 
-    </div>
+            <button
+                class="skip-button"
+                onclick="skipLoading()"
+            >
+                ⚡ Пропустить загрузку (PREMIUM!)
+            </button>
+
+        </div>
 
 
-    <div class="note">
+        <!-- ЗАГРУЗКА -->
 
-        Скорость генерации зависит от сложности
-        видео и его длительности.
+        <div
+            id="loading"
+            class="loading"
+        >
 
-        <br><br>
+            <div class="spinner"></div>
 
-        VideoForge использует облачную AI-модель
-        для создания видео.
+            <div>
+                🎬 Видео генерируется...
+            </div>
 
-    </div>
+        </div>
 
-</section>
+
+        <!-- ВИДЕО -->
+
+        <div
+            id="videoBox"
+            class="video-box"
+        >
+
+            <div class="video-placeholder">
+                🎥 Здесь появится готовое видео
+            </div>
+
+        </div>
+
+    </section>
 
 </main>
 
 
 <script>
 
-/* =========================
-   MENU
-========================= */
+/* ======================================
+   PREMIUM ПРОВЕРКА
+====================================== */
 
-function openMenu() {
+function checkPremium() {
 
-    document
-        .getElementById("menu")
-        .classList
-        .add("open");
-
-}
-
-
-function closeMenu() {
-
-    document
-        .getElementById("menu")
-        .classList
-        .remove("open");
-
-}
-
-
-/* =========================
-   PREMIUM
-========================= */
-
-function getPremium() {
-
-    window.location.href = "premium.html";
-
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-function showAbout() {
-
-    alert(
-        "VideoForge AI\n\n" +
-        "Генератор видео по описанию.\n\n" +
-        "Premium позволяет использовать " +
-        "функцию пропуска ожидания генерации."
-    );
-
-}
-
-
-/* =========================
-   GENERATE
-========================= */
-
-async function generateVideo() {
-
-    const prompt =
-        document
-        .getElementById("prompt")
-        .value
-        .trim();
-
-
-    const duration =
-        Number(
-            document
-            .getElementById("duration")
-            .value
+    const premium =
+        localStorage.getItem(
+            "videoforge_premium"
         );
 
 
-    const ratio =
-        document
-        .getElementById("ratio")
-        .value;
+    const status =
+        document.getElementById(
+            "premiumStatus"
+        );
+
+    const link =
+        document.getElementById(
+            "premiumLink"
+        );
+
+    const skip =
+        document.getElementById(
+            "skipBox"
+        );
+
+
+    if (premium === "true") {
+
+        // Premium активирован
+
+        status.textContent =
+            "👑 Premium активирован";
+
+        link.textContent =
+            "👑 Premium уже получен";
+
+        link.href = "#";
+
+        skip.classList.add("show");
+
+    } else {
+
+        // Premium не активирован
+
+        status.textContent =
+            "🔒 Premium не активирован";
+
+        link.textContent =
+            "👑 Получить Premium";
+
+        link.href =
+            "premium.html";
+
+        skip.classList.remove("show");
+
+    }
+
+}
+
+
+/* ======================================
+   ПРОВЕРЯЕМ PREMIUM ПРИ ОТКРЫТИИ
+====================================== */
+
+window.addEventListener(
+    "load",
+    checkPremium
+);
+
+
+/*
+   Проверяем снова, когда пользователь
+   возвращается на эту страницу.
+*/
+
+window.addEventListener(
+    "pageshow",
+    checkPremium
+);
+
+
+/* ======================================
+   ГЕНЕРАЦИЯ
+====================================== */
+
+function generateVideo() {
+
+    const prompt =
+        document.getElementById(
+            "prompt"
+        ).value.trim();
+
+    const duration =
+        document.getElementById(
+            "duration"
+        ).value;
 
 
     if (!prompt) {
@@ -752,227 +632,131 @@ async function generateVideo() {
         );
 
         return;
-
     }
 
 
-    if (
-        duration < 2 ||
-        duration > 10
-    ) {
-
-        alert(
-            "Длительность должна быть от 2 до 10 секунд."
+    const loading =
+        document.getElementById(
+            "loading"
         );
 
-        return;
-
-    }
-
-
-    const button =
-        document
-        .getElementById("generateButton");
+    const videoBox =
+        document.getElementById(
+            "videoBox"
+        );
 
 
-    const progress =
-        document
-        .getElementById("progress");
+    videoBox.classList.remove(
+        "show"
+    );
 
-
-    const result =
-        document
-        .getElementById("result");
-
-
-    const fill =
-        document
-        .getElementById("fill");
-
-
-    const percent =
-        document
-        .getElementById("percent");
-
-
-    const status =
-        document
-        .getElementById("statusText");
-
-
-    button.disabled = true;
-
-    progress.classList.add("show");
-
-    result.classList.remove("show");
-
-    fill.style.width = "0%";
-
-    percent.textContent = "0%";
-
-    status.textContent =
-        "Отправляем запрос...";
+    loading.classList.add(
+        "show"
+    );
 
 
     /*
-       MAGIC HOUR
-
-       Здесь будет запрос:
-
-       POST /generate
-
-       Наш server.js примет:
-
-       prompt
-       duration
-       ratio
-
-       и отправит их в Magic Hour.
-
-       API KEY хранится ТОЛЬКО
-       на сервере.
+       Пока это демонстрация интерфейса.
+       Здесь позже подключается API
+       настоящей нейросети.
     */
 
+    console.log(
+        "Запрос:",
+        prompt
+    );
 
-    try {
-
-        const response = await fetch(
-            "/generate",
-            {
-
-                method: "POST",
-
-                headers: {
-                    "Content-Type":
-                        "application/json"
-                },
-
-                body: JSON.stringify({
-
-                    prompt: prompt,
-
-                    duration: duration,
-
-                    aspect_ratio: ratio
-
-                })
-
-            }
-        );
-
-
-        if (!response.ok) {
-
-            throw new Error(
-                "Ошибка сервера"
-            );
-
-        }
-
-
-        const data =
-            await response.json();
-
-
-        if (!data.videoUrl) {
-
-            throw new Error(
-                "Видео не найдено"
-            );
-
-        }
-
-
-        document
-            .getElementById("videoPlayer")
-            .src = data.videoUrl;
-
-
-        document
-            .getElementById("downloadButton")
-            .href = data.videoUrl;
-
-
-        fill.style.width = "100%";
-
-        percent.textContent = "100%";
-
-        status.textContent =
-            "Видео готово ✓";
-
-
-        result.classList.add("show");
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        alert(
-            "Magic Hour пока не подключён.\n\n" +
-            "Следующим шагом подключим server.js."
-        );
-
-        progress.classList.remove("show");
-
-    }
-
-
-    button.disabled = false;
+    console.log(
+        "Длительность:",
+        duration,
+        "секунд"
+    );
 
 }
 
 
-/* =========================
-   PREMIUM SKIP
-========================= */
+/* ======================================
+   ПРОПУСТИТЬ ЗАГРУЗКУ
+====================================== */
 
 function skipLoading() {
 
-    /*
-       Пока только интерфейс.
-
-       Проверку Premium сделаем
-       после подключения premium.html
-       и сервера.
-    */
-
-    const isPremium =
-        localStorage
-        .getItem("videoforge_premium");
+    const premium =
+        localStorage.getItem(
+            "videoforge_premium"
+        );
 
 
-    if (isPremium !== "true") {
+    if (premium !== "true") {
 
         alert(
-            "👑 Эта функция доступна только Premium!\n\n" +
-            "Открой меню ☰ → Получить Premium."
+            "Эта функция доступна только Premium!"
         );
 
         return;
-
     }
 
 
     document
-        .getElementById("statusText")
-        .textContent =
-        "⚡ Premium: ожидание пропущено";
+        .getElementById("loading")
+        .classList
+        .remove("show");
 
 
     document
-        .getElementById("fill")
-        .style.width =
-        "100%";
-
-
-    document
-        .getElementById("percent")
-        .textContent =
-        "PREMIUM";
+        .getElementById("videoBox")
+        .classList
+        .add("show");
 
 }
+
+
+/* ======================================
+   МЕНЮ
+====================================== */
+
+function toggleMenu() {
+
+    document
+        .getElementById("menuPanel")
+        .classList
+        .toggle("show");
+
+}
+
+
+/* ======================================
+   ЗАКРЫТИЕ МЕНЮ
+====================================== */
+
+document.addEventListener(
+    "click",
+    function(event) {
+
+        const menu =
+            document.getElementById(
+                "menuPanel"
+            );
+
+        const button =
+            document.querySelector(
+                ".menu"
+            );
+
+
+        if (
+            !menu.contains(event.target) &&
+            !button.contains(event.target)
+        ) {
+
+            menu.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+);
 
 </script>
 
