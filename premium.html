@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VideoForge Premium</title>
+<title>Premium</title>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -15,284 +14,152 @@
 body {
     margin: 0;
     min-height: 100vh;
-
-    background:
-        radial-gradient(
-            circle at 50% -15%,
-            #382578 0%,
-            #08090d 45%
-        );
-
+    background: #08090d;
     color: white;
-
-    font-family:
-        Arial,
-        sans-serif;
+    font-family: Arial, sans-serif;
 }
 
-
-/* HEADER */
-
 header {
-    height: 70px;
-
+    height: 65px;
     display: flex;
     align-items: center;
-
     padding: 0 20px;
-
-    border-bottom:
-        1px solid #292d39;
-
-    background:
-        rgba(8, 9, 13, .92);
+    border-bottom: 1px solid #292d39;
+    background: #08090d;
 }
 
 .logo {
     font-size: 21px;
-    font-weight: 800;
+    font-weight: bold;
 }
 
 .logo span {
     color: #9278ff;
 }
 
-
-/* MAIN */
-
 main {
-    max-width: 850px;
-
-    margin: auto;
-
-    padding:
-        50px 18px 80px;
+    width: min(850px, 92%);
+    margin: 0 auto;
+    padding: 45px 0 70px;
 }
 
-
-/* HERO */
-
-.hero {
+.title {
     text-align: center;
-
-    margin-bottom: 35px;
 }
 
 .crown {
-    font-size: 60px;
-
-    margin-bottom: 10px;
+    font-size: 55px;
 }
 
-.hero h1 {
-    margin: 0;
-
-    font-size:
-        clamp(40px, 8vw, 65px);
-
-    letter-spacing: -2px;
+h1 {
+    margin: 8px 0 0;
+    font-size: 55px;
 }
 
-.hero h1 span {
-    color: #9278ff;
-}
-
-.hero p {
-    max-width: 650px;
-
-    margin:
-        18px auto 0;
-
-    color: #999eac;
-
-    line-height: 1.6;
-
-    font-size: 16px;
-}
-
-
-/* PREMIUM CARD */
-
-.card {
-    padding: 28px;
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #151721,
-            #101218
-        );
-
-    border:
-        1px solid #302c46;
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.35);
-}
-
-
-/* BUTTON */
-
-.telegram-button {
+.telegram {
     display: block;
 
     width: 100%;
-
+    margin-top: 30px;
     padding: 17px;
 
-    border-radius: 14px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #168de2,
-            #0879c7
-        );
-
+    background: #168de2;
     color: white;
 
-    text-decoration: none;
+    border: 0;
+    border-radius: 14px;
 
     text-align: center;
-
     font-size: 16px;
+    font-weight: bold;
 
-    font-weight: 800;
+    cursor: pointer;
 
-    transition:
-        transform .15s,
-        filter .15s;
-
-    box-shadow:
-        0 12px 30px
-        rgba(22,141,226,.2);
+    transition: .2s;
 }
 
-.telegram-button:hover {
-    transform:
-        translateY(-2px);
-
-    filter:
-        brightness(1.1);
+.telegram:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
 }
 
+.check {
+    display: none;
 
-/* TEXT */
+    width: 100%;
+    margin-top: 12px;
+    padding: 15px;
+
+    background: #19162a;
+    color: #c9beff;
+
+    border: 1px solid #8068ff;
+    border-radius: 14px;
+
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.check.show {
+    display: block;
+}
+
+#status {
+    text-align: center;
+    margin-top: 12px;
+    color: #9cffb0;
+    font-size: 14px;
+}
 
 .description {
-    margin-top: 35px;
+    margin-top: 40px;
+    padding: 28px;
 
-    padding-top: 30px;
-
-    border-top:
-        1px solid #292d39;
+    background: #101218;
+    border: 1px solid #292d39;
+    border-radius: 20px;
 }
 
 .description h2 {
     margin-top: 0;
-
-    font-size: 25px;
-}
-
-.description h3 {
-    margin-top: 30px;
-
-    color: #bbaeff;
-
-    font-size: 18px;
+    color: #c9beff;
 }
 
 .description p {
-    color: #a0a4b1;
-
-    line-height: 1.75;
-
-    font-size: 14px;
+    color: #a4a8b4;
+    font-size: 15px;
+    line-height: 1.8;
 }
-
-
-/* FEATURES */
-
-.features {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 12px;
-
-    margin-top: 25px;
-}
-
-.feature {
-    padding: 17px;
-
-    border:
-        1px solid #292d39;
-
-    border-radius: 14px;
-
-    background: #101219;
-}
-
-.feature b {
-    display: block;
-
-    margin-bottom: 7px;
-}
-
-.feature span {
-    color: #9297a5;
-
-    font-size: 13px;
-
-    line-height: 1.5;
-}
-
-
-/* BACK */
 
 .back {
     display: block;
-
     margin-top: 25px;
 
-    color: #8f84bd;
-
+    color: #9187b8;
     text-align: center;
-
     text-decoration: none;
-
     font-size: 13px;
 }
 
 .back:hover {
-    color: #bcaeff;
+    color: #bbaeff;
 }
 
+@media(max-width:600px) {
 
-/* MOBILE */
-
-@media(max-width:650px) {
-
-    .features {
-        grid-template-columns: 1fr;
+    h1 {
+        font-size: 45px;
     }
 
-    .card {
-        padding: 20px;
+    .description {
+        padding: 21px;
     }
 
 }
-
 </style>
-
 </head>
 
 <body>
-
 
 <header>
 
@@ -303,214 +170,231 @@ main {
 </header>
 
 
-
 <main>
 
+    <!-- ЗАГОЛОВОК -->
 
-<section class="hero">
+    <div class="title">
 
-    <div class="crown">
-        👑
+        <div class="crown">
+            👑
+        </div>
+
+        <h1>
+            Premium
+        </h1>
+
     </div>
 
-    <h1>
-        VideoForge
-        <span>Premium</span>
-    </h1>
 
-    <p>
-        Получи доступ к дополнительным возможностям
-        VideoForge и используй генератор ещё удобнее.
-    </p>
+    <!-- TELEGRAM -->
 
-</section>
-
+    <button
+        id="telegramButton"
+        class="telegram"
+        onclick="openTelegram()"
+    >
+        📱 Получить Premium
+    </button>
 
 
-<section class="card">
+    <!-- ПОЯВЛЯЕТСЯ ПОСЛЕ НАЖАТИЯ -->
+
+    <button
+        id="checkButton"
+        class="check"
+        onclick="activatePremium()"
+    >
+        ✅ Я подписался на Telegram
+    </button>
 
 
-<!-- КНОПКА TELEGRAM -->
-
-<a
-    class="telegram-button"
-    href="https://t.me/+jTgKKqad2EczYTE6"
-    target="_blank"
-    rel="noopener noreferrer"
->
-    📱 Получить Premium
-</a>
+    <div id="status"></div>
 
 
+    <!-- ОПИСАНИЕ -->
 
-<!-- ДЛИННОЕ ОПИСАНИЕ -->
+    <section class="description">
 
-<div class="description">
+        <h2>
+            Premium — это...
+        </h2>
 
-<h2>
-    👑 Premium — это...
-</h2>
+        <p>
+            Premium — это специальный статус пользователя
+            VideoForge, который открывает дополнительные
+            возможности сайта.
+        </p>
 
+        <p>
+            Premium создан для пользователей, которые хотят
+            получить больше возможностей и поддержать
+            дальнейшее развитие VideoForge.
+        </p>
 
-<p>
-    Premium — это специальный статус VideoForge,
-    который открывает дополнительные возможности
-    для пользователей генератора видео.
-</p>
+        <p>
+            Пользователи Premium получают доступ к функциям,
+            которые могут быть недоступны обычным пользователям.
+            В дальнейшем количество Premium-возможностей может
+            увеличиваться вместе с развитием проекта.
+        </p>
 
+        <p>
+            Premium сохраняется на устройстве и используется
+            для определения доступа к функциям VideoForge.
+            Новые возможности могут добавляться постепенно
+            в будущих обновлениях.
+        </p>
 
-<p>
-    VideoForge создавался для того, чтобы сделать
-    создание коротких AI-видео максимально простым.
-    Тебе не нужно разбираться в сложных программах:
-    достаточно придумать идею, описать её обычными
-    словами и запустить генерацию.
-</p>
+        <p>
+            Получение Premium также помогает поддерживать
+            разработку проекта, исправление ошибок,
+            улучшение интерфейса и появление новых функций.
+        </p>
 
+        <p>
+            Чтобы получить Premium, нажми кнопку выше,
+            перейди в Telegram-канал VideoForge, подпишись
+            на него и затем вернись на эту страницу.
+        </p>
 
-<h3>
-    ⚡ Пропуск ожидания
-</h3>
-
-<p>
-    Главная функция Premium — возможность
-    использовать кнопку «Пропустить загрузку».
-    Во время генерации обычному пользователю
-    приходится ждать окончания обработки.
-    Premium предназначен для более удобного
-    взаимодействия с этим процессом.
-</p>
-
-
-<p>
-    При этом важно понимать: кнопка не заставляет
-    нейросеть физически генерировать видео мгновенно.
-    Она предназначена для того, чтобы не заставлять
-    пользователя постоянно находиться на странице
-    ожидания. Само создание видео выполняется
-    сервером и зависит от нагрузки и выбранной
-    модели.
-</p>
+    </section>
 
 
-<h3>
-    🎬 Генерация видео
-</h3>
-
-<p>
-    VideoForge позволяет описать практически любую
-    сцену, которую ты хочешь увидеть в ролике.
-    Например, можно написать про путешествие
-    в космос, фантастический город, животное,
-    автомобиль, природу, игровой мир или
-    кинематографическую сцену.
-</p>
-
-
-<p>
-    Чем подробнее описание, тем лучше система
-    сможет понять задумку. Можно указывать место,
-    персонажей, освещение, движение камеры,
-    атмосферу, стиль и другие детали будущего ролика.
-</p>
-
-
-<h3>
-    🚀 Зачем нужен Premium?
-</h3>
-
-<p>
-    Premium создаётся для пользователей, которые
-    часто используют VideoForge и хотят получить
-    дополнительные функции сайта. Это не отдельная
-    нейросеть и не новая модель генерации.
-    Premium — это дополнительный уровень возможностей
-    внутри самого VideoForge.
-</p>
-
-
-<h3>
-    🔐 Как получить Premium?
-</h3>
-
-<p>
-    Нажми кнопку «Получить Premium» выше и перейди
-    в официальный Telegram-канал VideoForge.
-    После подписки на канал ты сможешь продолжить
-    процесс получения Premium.
-</p>
-
-
-<p>
-    Пожалуйста, используй только официальную ссылку
-    на Telegram, указанную на этой странице.
-    Никому не передавай пароли, коды подтверждения
-    или данные своего аккаунта.
-</p>
-
-
-<h3>
-    ❤️ Спасибо за поддержку
-</h3>
-
-<p>
-    Поддерживая VideoForge и подписываясь на канал,
-    ты помогаешь проекту развиваться. В дальнейшем
-    здесь могут появляться новые возможности,
-    улучшения интерфейса, новые режимы генерации,
-    дополнительные инструменты и другие функции.
-</p>
-
-
-<div class="features">
-
-    <div class="feature">
-        <b>⚡ Быстрее</b>
-        <span>
-            Дополнительная функция для удобного
-            ожидания генерации.
-        </span>
-    </div>
-
-    <div class="feature">
-        <b>👑 Premium</b>
-        <span>
-            Специальный статус пользователя
-            VideoForge.
-        </span>
-    </div>
-
-    <div class="feature">
-        <b>🎬 AI Video</b>
-        <span>
-            Создание видео по текстовому описанию.
-        </span>
-    </div>
-
-    <div class="feature">
-        <b>🚀 Будущие функции</b>
-        <span>
-            Новые возможности будут добавляться
-            по мере развития проекта.
-        </span>
-    </div>
-
-</div>
-
-</div>
-
-
-<a
-    class="back"
-    href="index.html"
->
-    ← Вернуться в VideoForge
-</a>
-
-
-</section>
+    <a
+        class="back"
+        href="index.html"
+    >
+        ← Вернуться в VideoForge
+    </a>
 
 </main>
 
+
+<script>
+
+/* ===================================
+   ОТКРЫТИЕ TELEGRAM
+=================================== */
+
+function openTelegram() {
+
+    /*
+       Запоминаем, что пользователь
+       нажал кнопку получения Premium.
+    */
+
+    localStorage.setItem(
+        "telegram_button_clicked",
+        "true"
+    );
+
+
+    /*
+       Показываем кнопку подтверждения.
+    */
+
+    document
+        .getElementById("checkButton")
+        .classList
+        .add("show");
+
+
+    /*
+       Открываем Telegram.
+    */
+
+    window.location.href =
+        "https://t.me/+jTgKKqad2EczYTE6";
+}
+
+
+/* ===================================
+   ПРОВЕРЯЕМ, НАЖИМАЛ ЛИ ПОЛЬЗОВАТЕЛЬ
+=================================== */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        const clicked =
+            localStorage.getItem(
+                "telegram_button_clicked"
+            );
+
+        if (clicked === "true") {
+
+            document
+                .getElementById("checkButton")
+                .classList
+                .add("show");
+
+        }
+
+
+        /*
+           Если Premium уже активирован,
+           показываем соответствующий статус.
+        */
+
+        const premium =
+            localStorage.getItem(
+                "videoforge_premium"
+            );
+
+        if (premium === "true") {
+
+            document
+                .getElementById("status")
+                .textContent =
+                "👑 Premium уже активирован!";
+
+            document
+                .getElementById("checkButton")
+                .textContent =
+                "👑 Premium уже активирован";
+
+            document
+                .getElementById("checkButton")
+                .disabled = true;
+
+        }
+
+    }
+);
+
+
+/* ===================================
+   АКТИВАЦИЯ PREMIUM
+=================================== */
+
+function activatePremium() {
+
+    localStorage.setItem(
+        "videoforge_premium",
+        "true"
+    );
+
+
+    document
+        .getElementById("status")
+        .textContent =
+        "👑 Premium активирован!";
+
+
+    document
+        .getElementById("checkButton")
+        .textContent =
+        "👑 Premium уже активирован";
+
+
+    document
+        .getElementById("checkButton")
+        .disabled = true;
+
+}
+
+</script>
+
 </body>
-  </html>
+</html>
