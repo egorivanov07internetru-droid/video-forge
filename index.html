@@ -19,6 +19,8 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* HEADER */
+
 header {
     height: 65px;
     padding: 0 20px;
@@ -27,8 +29,8 @@ header {
     align-items: center;
     justify-content: space-between;
 
-    border-bottom: 1px solid #292d39;
     background: #08090d;
+    border-bottom: 1px solid #292d39;
 }
 
 .logo {
@@ -54,19 +56,67 @@ header {
     cursor: pointer;
 }
 
+/* MENU */
+
+.menu-panel {
+    display: none;
+
+    position: fixed;
+    top: 75px;
+    right: 15px;
+
+    width: 220px;
+    padding: 10px;
+
+    background: #11131a;
+    border: 1px solid #292d39;
+    border-radius: 16px;
+
+    z-index: 1000;
+}
+
+.menu-panel.show {
+    display: block;
+}
+
+.menu-panel button {
+    width: 100%;
+    padding: 13px;
+
+    background: transparent;
+    color: white;
+
+    border: 0;
+    border-radius: 10px;
+
+    text-align: left;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.menu-panel button:hover {
+    background: #1d2029;
+}
+
+/* MAIN */
+
 main {
     width: min(850px, 92%);
     margin: auto;
     padding: 45px 0 70px;
 }
 
+/* HERO */
+
 .hero {
     text-align: center;
 }
 
 .hero h1 {
-    font-size: clamp(40px, 9vw, 65px);
     margin: 0;
+
+    font-size: clamp(42px, 10vw, 68px);
 }
 
 .hero h1 span {
@@ -74,12 +124,13 @@ main {
 }
 
 .hero p {
+    margin-top: 15px;
+
     color: #9297a5;
     line-height: 1.6;
 }
 
-
-/* ГЕНЕРАТОР */
+/* GENERATOR */
 
 .generator {
     margin-top: 35px;
@@ -92,6 +143,7 @@ main {
 
 label {
     display: block;
+
     margin-bottom: 10px;
 
     color: #c8cbd4;
@@ -115,11 +167,14 @@ textarea {
     outline: none;
 
     font-size: 15px;
+    font-family: Arial, sans-serif;
 }
 
 textarea:focus {
     border-color: #8068ff;
 }
+
+/* DURATION */
 
 .duration {
     margin-top: 20px;
@@ -127,6 +182,7 @@ textarea:focus {
 
 select {
     width: 100%;
+
     padding: 15px;
 
     background: #08090d;
@@ -138,8 +194,11 @@ select {
     font-size: 15px;
 }
 
+/* GENERATE BUTTON */
+
 .generate {
     width: 100%;
+
     margin-top: 20px;
     padding: 17px;
 
@@ -164,74 +223,55 @@ select {
     filter: brightness(1.1);
 }
 
-
-/* PREMIUM */
-
-.premium-box {
-    margin-top: 20px;
-    padding: 18px;
-
-    border: 1px solid #302a4d;
-    border-radius: 16px;
-
-    background: #151322;
+.generate:disabled {
+    opacity: 0.6;
+    cursor: default;
 }
 
-.premium-status {
-    color: #c9beff;
-    font-weight: bold;
-}
+/* LOADING */
 
-.premium-button {
-    display: block;
-
-    margin-top: 12px;
-    padding: 14px;
-
-    border-radius: 12px;
-
-    background: #29213f;
-    color: #c9beff;
-
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-
-/* PREMIUM-ФУНКЦИЯ */
-
-.skip-box {
+.loading {
     display: none;
 
-    margin-top: 20px;
-    padding: 18px;
+    margin-top: 25px;
 
-    background: #151322;
-    border: 1px solid #8068ff;
+    padding: 25px;
+
+    background: #0b0d12;
+
+    border: 1px solid #292d39;
     border-radius: 16px;
+
+    text-align: center;
 }
 
-.skip-box.show {
+.loading.show {
     display: block;
 }
 
-.skip-button {
-    width: 100%;
-    padding: 14px;
+.spinner {
+    width: 40px;
+    height: 40px;
 
-    border: 1px solid #8068ff;
-    border-radius: 12px;
+    margin: 0 auto 15px;
 
-    background: #201a35;
-    color: #c9beff;
+    border: 4px solid #292d39;
+    border-top-color: #9278ff;
 
-    font-weight: bold;
-    cursor: pointer;
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
 }
 
+@keyframes spin {
 
-/* ВИДЕО */
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+/* VIDEO */
 
 .video-box {
     display: none;
@@ -244,6 +284,8 @@ select {
 }
 
 .video-box video {
+    display: block;
+
     width: 100%;
 
     background: black;
@@ -255,6 +297,7 @@ select {
     padding: 60px 20px;
 
     background: #050608;
+
     border-radius: 16px;
 
     text-align: center;
@@ -262,82 +305,40 @@ select {
     color: #777c89;
 }
 
+/* INFO */
 
-/* МЕНЮ */
+.info {
+    margin-top: 20px;
 
-.menu-panel {
-    display: none;
+    padding: 18px;
 
-    position: fixed;
-    top: 75px;
-    right: 15px;
-
-    width: 240px;
-
-    padding: 12px;
-
-    background: #11131a;
+    background: #101218;
 
     border: 1px solid #292d39;
     border-radius: 16px;
 
-    z-index: 100;
+    color: #9297a5;
+
+    font-size: 14px;
+    line-height: 1.6;
 }
 
-.menu-panel.show {
-    display: block;
-}
+/* MOBILE */
 
-.menu-panel a {
-    display: block;
+@media (max-width: 600px) {
 
-    padding: 14px;
-
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 10px;
-}
-
-.menu-panel a:hover {
-    background: #1d2029;
-}
-
-
-/* ГЕНЕРАЦИЯ */
-
-.loading {
-    display: none;
-
-    margin-top: 20px;
-
-    text-align: center;
-    color: #9da2af;
-}
-
-.loading.show {
-    display: block;
-}
-
-.spinner {
-    width: 35px;
-    height: 35px;
-
-    margin: 0 auto 12px;
-
-    border: 4px solid #292d39;
-    border-top-color: #9278ff;
-
-    border-radius: 50%;
-
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
+    main {
+        padding-top: 35px;
     }
+
+    .generator {
+        padding: 20px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
 }
 </style>
 </head>
@@ -345,6 +346,8 @@ select {
 
 <body>
 
+
+<!-- HEADER -->
 
 <header>
 
@@ -355,6 +358,7 @@ select {
     <button
         class="menu"
         onclick="toggleMenu()"
+        aria-label="Меню"
     >
         ☰
     </button>
@@ -362,26 +366,30 @@ select {
 </header>
 
 
-<!-- МЕНЮ -->
+<!-- MENU -->
 
 <div
     id="menuPanel"
     class="menu-panel"
 >
 
-    <a href="premium.html">
-        👑 Получить Premium
-    </a>
+    <button onclick="newProject()">
+        ✨ Новый проект
+    </button>
 
-    <a href="#">
-        ⚙️ Настройки
-    </a>
+    <button onclick="clearPrompt()">
+        🗑️ Очистить описание
+    </button>
 
 </div>
 
 
+<!-- MAIN -->
+
 <main>
 
+
+    <!-- HERO -->
 
     <section class="hero">
 
@@ -390,28 +398,35 @@ select {
         </h1>
 
         <p>
-            Создай видео из своей идеи
-            с помощью искусственного интеллекта.
+            Опиши идею — VideoForge подготовит
+            видео по твоему описанию.
         </p>
 
     </section>
 
 
+    <!-- GENERATOR -->
+
     <section class="generator">
 
-        <label>
+
+        <!-- DESCRIPTION -->
+
+        <label for="prompt">
             🎬 Опиши своё видео
         </label>
 
         <textarea
             id="prompt"
-            placeholder="Например: Огромный дракон летит над городом будущего..."
+            placeholder="Например: огромный дракон летит над футуристическим городом на закате..."
         ></textarea>
 
 
+        <!-- DURATION -->
+
         <div class="duration">
 
-            <label>
+            <label for="duration">
                 ⏱️ Длительность
             </label>
 
@@ -442,7 +457,10 @@ select {
         </div>
 
 
+        <!-- GENERATE -->
+
         <button
+            id="generateButton"
             class="generate"
             onclick="generateVideo()"
         >
@@ -450,46 +468,7 @@ select {
         </button>
 
 
-        <!-- PREMIUM -->
-
-        <div class="premium-box">
-
-            <div
-                id="premiumStatus"
-                class="premium-status"
-            >
-                🔒 Premium не активирован
-            </div>
-
-            <a
-                id="premiumLink"
-                class="premium-button"
-                href="premium.html"
-            >
-                👑 Получить Premium
-            </a>
-
-        </div>
-
-
-        <!-- PREMIUM ФУНКЦИЯ -->
-
-        <div
-            id="skipBox"
-            class="skip-box"
-        >
-
-            <button
-                class="skip-button"
-                onclick="skipLoading()"
-            >
-                ⚡ Пропустить загрузку (PREMIUM!)
-            </button>
-
-        </div>
-
-
-        <!-- ЗАГРУЗКА -->
+        <!-- LOADING -->
 
         <div
             id="loading"
@@ -498,14 +477,14 @@ select {
 
             <div class="spinner"></div>
 
-            <div>
-                🎬 Видео генерируется...
+            <div id="loadingText">
+                🎬 Подготовка видео...
             </div>
 
         </div>
 
 
-        <!-- ВИДЕО -->
+        <!-- VIDEO -->
 
         <div
             id="videoBox"
@@ -518,202 +497,28 @@ select {
 
         </div>
 
+
+        <!-- INFO -->
+
+        <div class="info">
+
+            💡 Чем сложнее и масштабнее описание,
+            тем больше времени может потребоваться
+            на создание видео.
+
+        </div>
+
     </section>
+
 
 </main>
 
 
 <script>
 
-/* ======================================
-   PREMIUM ПРОВЕРКА
-====================================== */
-
-function checkPremium() {
-
-    const premium =
-        localStorage.getItem(
-            "videoforge_premium"
-        );
-
-
-    const status =
-        document.getElementById(
-            "premiumStatus"
-        );
-
-    const link =
-        document.getElementById(
-            "premiumLink"
-        );
-
-    const skip =
-        document.getElementById(
-            "skipBox"
-        );
-
-
-    if (premium === "true") {
-
-        // Premium активирован
-
-        status.textContent =
-            "👑 Premium активирован";
-
-        link.textContent =
-            "👑 Premium уже получен";
-
-        link.href = "#";
-
-        skip.classList.add("show");
-
-    } else {
-
-        // Premium не активирован
-
-        status.textContent =
-            "🔒 Premium не активирован";
-
-        link.textContent =
-            "👑 Получить Premium";
-
-        link.href =
-            "premium.html";
-
-        skip.classList.remove("show");
-
-    }
-
-}
-
-
-/* ======================================
-   ПРОВЕРЯЕМ PREMIUM ПРИ ОТКРЫТИИ
-====================================== */
-
-window.addEventListener(
-    "load",
-    checkPremium
-);
-
-
-/*
-   Проверяем снова, когда пользователь
-   возвращается на эту страницу.
-*/
-
-window.addEventListener(
-    "pageshow",
-    checkPremium
-);
-
-
-/* ======================================
-   ГЕНЕРАЦИЯ
-====================================== */
-
-function generateVideo() {
-
-    const prompt =
-        document.getElementById(
-            "prompt"
-        ).value.trim();
-
-    const duration =
-        document.getElementById(
-            "duration"
-        ).value;
-
-
-    if (!prompt) {
-
-        alert(
-            "Сначала опиши, какое видео нужно создать!"
-        );
-
-        return;
-    }
-
-
-    const loading =
-        document.getElementById(
-            "loading"
-        );
-
-    const videoBox =
-        document.getElementById(
-            "videoBox"
-        );
-
-
-    videoBox.classList.remove(
-        "show"
-    );
-
-    loading.classList.add(
-        "show"
-    );
-
-
-    /*
-       Пока это демонстрация интерфейса.
-       Здесь позже подключается API
-       настоящей нейросети.
-    */
-
-    console.log(
-        "Запрос:",
-        prompt
-    );
-
-    console.log(
-        "Длительность:",
-        duration,
-        "секунд"
-    );
-
-}
-
-
-/* ======================================
-   ПРОПУСТИТЬ ЗАГРУЗКУ
-====================================== */
-
-function skipLoading() {
-
-    const premium =
-        localStorage.getItem(
-            "videoforge_premium"
-        );
-
-
-    if (premium !== "true") {
-
-        alert(
-            "Эта функция доступна только Premium!"
-        );
-
-        return;
-    }
-
-
-    document
-        .getElementById("loading")
-        .classList
-        .remove("show");
-
-
-    document
-        .getElementById("videoBox")
-        .classList
-        .add("show");
-
-}
-
-
-/* ======================================
+/* ==========================================
    МЕНЮ
-====================================== */
+========================================== */
 
 function toggleMenu() {
 
@@ -725,9 +530,9 @@ function toggleMenu() {
 }
 
 
-/* ======================================
+/* ==========================================
    ЗАКРЫТИЕ МЕНЮ
-====================================== */
+========================================== */
 
 document.addEventListener(
     "click",
@@ -757,6 +562,181 @@ document.addEventListener(
 
     }
 );
+
+
+/* ==========================================
+   ОЧИСТИТЬ ОПИСАНИЕ
+========================================== */
+
+function clearPrompt() {
+
+    document
+        .getElementById("prompt")
+        .value = "";
+
+}
+
+
+/* ==========================================
+   НОВЫЙ ПРОЕКТ
+========================================== */
+
+function newProject() {
+
+    document
+        .getElementById("prompt")
+        .value = "";
+
+    document
+        .getElementById("duration")
+        .value = "5";
+
+    document
+        .getElementById("loading")
+        .classList
+        .remove("show");
+
+    document
+        .getElementById("videoBox")
+        .classList
+        .remove("show");
+
+}
+
+
+/* ==========================================
+   ГЕНЕРАЦИЯ
+========================================== */
+
+function generateVideo() {
+
+    const prompt =
+        document
+            .getElementById("prompt")
+            .value
+            .trim();
+
+
+    const duration =
+        document
+            .getElementById("duration")
+            .value;
+
+
+    const button =
+        document
+            .getElementById("generateButton");
+
+
+    const loading =
+        document
+            .getElementById("loading");
+
+
+    const videoBox =
+        document
+            .getElementById("videoBox");
+
+
+    const loadingText =
+        document
+            .getElementById("loadingText");
+
+
+    /* Проверка описания */
+
+    if (!prompt) {
+
+        alert(
+            "Напиши, какое видео ты хочешь создать!"
+        );
+
+        return;
+    }
+
+
+    /* Показываем загрузку */
+
+    videoBox.classList.remove(
+        "show"
+    );
+
+    loading.classList.add(
+        "show"
+    );
+
+    button.disabled = true;
+
+
+    loadingText.textContent =
+        "🎬 Подготовка видео...";
+
+
+    /*
+       ВРЕМЕННАЯ ДЕМО-ГЕНЕРАЦИЯ.
+
+       Здесь позже можно подключить
+       API настоящей нейросети.
+    */
+
+    console.log(
+        "VideoForge prompt:",
+        prompt
+    );
+
+    console.log(
+        "Video duration:",
+        duration
+    );
+
+
+    /*
+       Имитируем процесс генерации,
+       чтобы интерфейс уже работал.
+    */
+
+    setTimeout(
+        function() {
+
+            loadingText.textContent =
+                "🎥 Видео почти готово...";
+
+        },
+        2500
+    );
+
+
+    setTimeout(
+        function() {
+
+            loading.classList.remove(
+                "show"
+            );
+
+            button.disabled = false;
+
+
+            videoBox.classList.add(
+                "show"
+            );
+
+
+            videoBox.innerHTML = `
+                <div class="video-placeholder">
+                    🎥 Видео готово
+                    <br><br>
+                    <small>
+                        Настоящая генерация будет
+                        подключена через API.
+                    </small>
+                </div>
+            `;
+
+        },
+        5000
+    );
+
+}
 
 </script>
 
