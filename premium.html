@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VideoForge Premium</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -15%,
+            #382578 0%,
+            #08090d 45%
+        );
+
+    color: white;
+
+    font-family:
+        Arial,
+        sans-serif;
+}
+
+
+/* HEADER */
+
+header {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    border-bottom:
+        1px solid #292d39;
+
+    background:
+        rgba(8, 9, 13, .92);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #9278ff;
+}
+
+
+/* MAIN */
+
+main {
+    max-width: 850px;
+
+    margin: auto;
+
+    padding:
+        50px 18px 80px;
+}
+
+
+/* HERO */
+
+.hero {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.crown {
+    font-size: 60px;
+
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size:
+        clamp(40px, 8vw, 65px);
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: #9278ff;
+}
+
+.hero p {
+    max-width: 650px;
+
+    margin:
+        18px auto 0;
+
+    color: #999eac;
+
+    line-height: 1.6;
+
+    font-size: 16px;
+}
+
+
+/* PREMIUM CARD */
+
+.card {
+    padding: 28px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #151721,
+            #101218
+        );
+
+    border:
+        1px solid #302c46;
+
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.35);
+}
+
+
+/* BUTTON */
+
+.telegram-button {
+    display: block;
+
+    width: 100%;
+
+    padding: 17px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #168de2,
+            #0879c7
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    transition:
+        transform .15s,
+        filter .15s;
+
+    box-shadow:
+        0 12px 30px
+        rgba(22,141,226,.2);
+}
+
+.telegram-button:hover {
+    transform:
+        translateY(-2px);
+
+    filter:
+        brightness(1.1);
+}
+
+
+/* TEXT */
+
+.description {
+    margin-top: 35px;
+
+    padding-top: 30px;
+
+    border-top:
+        1px solid #292d39;
+}
+
+.description h2 {
+    margin-top: 0;
+
+    font-size: 25px;
+}
+
+.description h3 {
+    margin-top: 30px;
+
+    color: #bbaeff;
+
+    font-size: 18px;
+}
+
+.description p {
+    color: #a0a4b1;
+
+    line-height: 1.75;
+
+    font-size: 14px;
+}
+
+
+/* FEATURES */
+
+.features {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.feature {
+    padding: 17px;
+
+    border:
+        1px solid #292d39;
+
+    border-radius: 14px;
+
+    background: #101219;
+}
+
+.feature b {
+    display: block;
+
+    margin-bottom: 7px;
+}
+
+.feature span {
+    color: #9297a5;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* BACK */
+
+.back {
+    display: block;
+
+    margin-top: 25px;
+
+    color: #8f84bd;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+.back:hover {
+    color: #bcaeff;
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px) {
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        Video<span>Forge</span> AI
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<section class="hero">
+
+    <div class="crown">
+        👑
+    </div>
+
+    <h1>
+        VideoForge
+        <span>Premium</span>
+    </h1>
+
+    <p>
+        Получи доступ к дополнительным возможностям
+        VideoForge и используй генератор ещё удобнее.
+    </p>
+
+</section>
+
+
+
+<section class="card">
+
+
+<!-- КНОПКА TELEGRAM -->
+
+<a
+    class="telegram-button"
+    href="https://t.me/+jTgKKqad2EczYTE6"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+    📱 Получить Premium
+</a>
+
+
+
+<!-- ДЛИННОЕ ОПИСАНИЕ -->
+
+<div class="description">
+
+<h2>
+    👑 Premium — это...
+</h2>
+
+
+<p>
+    Premium — это специальный статус VideoForge,
+    который открывает дополнительные возможности
+    для пользователей генератора видео.
+</p>
+
+
+<p>
+    VideoForge создавался для того, чтобы сделать
+    создание коротких AI-видео максимально простым.
+    Тебе не нужно разбираться в сложных программах:
+    достаточно придумать идею, описать её обычными
+    словами и запустить генерацию.
+</p>
+
+
+<h3>
+    ⚡ Пропуск ожидания
+</h3>
+
+<p>
+    Главная функция Premium — возможность
+    использовать кнопку «Пропустить загрузку».
+    Во время генерации обычному пользователю
+    приходится ждать окончания обработки.
+    Premium предназначен для более удобного
+    взаимодействия с этим процессом.
+</p>
+
+
+<p>
+    При этом важно понимать: кнопка не заставляет
+    нейросеть физически генерировать видео мгновенно.
+    Она предназначена для того, чтобы не заставлять
+    пользователя постоянно находиться на странице
+    ожидания. Само создание видео выполняется
+    сервером и зависит от нагрузки и выбранной
+    модели.
+</p>
+
+
+<h3>
+    🎬 Генерация видео
+</h3>
+
+<p>
+    VideoForge позволяет описать практически любую
+    сцену, которую ты хочешь увидеть в ролике.
+    Например, можно написать про путешествие
+    в космос, фантастический город, животное,
+    автомобиль, природу, игровой мир или
+    кинематографическую сцену.
+</p>
+
+
+<p>
+    Чем подробнее описание, тем лучше система
+    сможет понять задумку. Можно указывать место,
+    персонажей, освещение, движение камеры,
+    атмосферу, стиль и другие детали будущего ролика.
+</p>
+
+
+<h3>
+    🚀 Зачем нужен Premium?
+</h3>
+
+<p>
+    Premium создаётся для пользователей, которые
+    часто используют VideoForge и хотят получить
+    дополнительные функции сайта. Это не отдельная
+    нейросеть и не новая модель генерации.
+    Premium — это дополнительный уровень возможностей
+    внутри самого VideoForge.
+</p>
+
+
+<h3>
+    🔐 Как получить Premium?
+</h3>
+
+<p>
+    Нажми кнопку «Получить Premium» выше и перейди
+    в официальный Telegram-канал VideoForge.
+    После подписки на канал ты сможешь продолжить
+    процесс получения Premium.
+</p>
+
+
+<p>
+    Пожалуйста, используй только официальную ссылку
+    на Telegram, указанную на этой странице.
+    Никому не передавай пароли, коды подтверждения
+    или данные своего аккаунта.
+</p>
+
+
+<h3>
+    ❤️ Спасибо за поддержку
+</h3>
+
+<p>
+    Поддерживая VideoForge и подписываясь на канал,
+    ты помогаешь проекту развиваться. В дальнейшем
+    здесь могут появляться новые возможности,
+    улучшения интерфейса, новые режимы генерации,
+    дополнительные инструменты и другие функции.
+</p>
+
+
+<div class="features">
+
+    <div class="feature">
+        <b>⚡ Быстрее</b>
+        <span>
+            Дополнительная функция для удобного
+            ожидания генерации.
+        </span>
+    </div>
+
+    <div class="feature">
+        <b>👑 Premium</b>
+        <span>
+            Специальный статус пользователя
+            VideoForge.
+        </span>
+    </div>
+
+    <div class="feature">
+        <b>🎬 AI Video</b>
+        <span>
+            Создание видео по текстовому описанию.
+        </span>
+    </div>
+
+    <div class="feature">
+        <b>🚀 Будущие функции</b>
+        <span>
+            Новые возможности будут добавляться
+            по мере развития проекта.
+        </span>
+    </div>
+
+</div>
+
+</div>
+
+
+<a
+    class="back"
+    href="index.html"
+>
+    ← Вернуться в VideoForge
+</a>
+
+
+</section>
+
+</main>
+
+</body>
+  </html>
