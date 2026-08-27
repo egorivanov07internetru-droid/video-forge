@@ -58,7 +58,6 @@ h1 {
 
 .telegram {
     display: block;
-
     width: 100%;
     margin-top: 30px;
     padding: 17px;
@@ -74,13 +73,10 @@ h1 {
     font-weight: bold;
 
     cursor: pointer;
-
-    transition: .2s;
 }
 
 .telegram:hover {
     filter: brightness(1.1);
-    transform: translateY(-1px);
 }
 
 .check {
@@ -141,12 +137,7 @@ h1 {
     font-size: 13px;
 }
 
-.back:hover {
-    color: #bbaeff;
-}
-
 @media(max-width:600px) {
-
     h1 {
         font-size: 45px;
     }
@@ -154,7 +145,6 @@ h1 {
     .description {
         padding: 21px;
     }
-
 }
 </style>
 </head>
@@ -172,8 +162,6 @@ h1 {
 
 <main>
 
-    <!-- ЗАГОЛОВОК -->
-
     <div class="title">
 
         <div class="crown">
@@ -187,7 +175,7 @@ h1 {
     </div>
 
 
-    <!-- TELEGRAM -->
+    <!-- КНОПКА TELEGRAM -->
 
     <button
         id="telegramButton"
@@ -212,7 +200,7 @@ h1 {
     <div id="status"></div>
 
 
-    <!-- ОПИСАНИЕ -->
+    <!-- ТЕКСТ ПРО PREMIUM -->
 
     <section class="description">
 
@@ -273,56 +261,40 @@ h1 {
 
 <script>
 
-/* ===================================
-   ОТКРЫТИЕ TELEGRAM
-=================================== */
+/* =====================================
+   ОТКРЫТЬ TELEGRAM
+===================================== */
 
 function openTelegram() {
-
-    /*
-       Запоминаем, что пользователь
-       нажал кнопку получения Premium.
-    */
 
     localStorage.setItem(
         "telegram_button_clicked",
         "true"
     );
 
-
-    /*
-       Показываем кнопку подтверждения.
-    */
-
     document
         .getElementById("checkButton")
         .classList
         .add("show");
 
-
-    /*
-       Открываем Telegram.
-    */
-
     window.location.href =
-        "https://t.me/+jTgKKqad2EczYTE6";
+        "https://t.me/VideoForge6767";
 }
 
 
-/* ===================================
-   ПРОВЕРЯЕМ, НАЖИМАЛ ЛИ ПОЛЬЗОВАТЕЛЬ
-=================================== */
+/* =====================================
+   ПОКАЗАТЬ КНОПКУ ПОСЛЕ ВОЗВРАЩЕНИЯ
+===================================== */
 
 window.addEventListener(
     "load",
     function() {
 
-        const clicked =
+        if (
             localStorage.getItem(
                 "telegram_button_clicked"
-            );
-
-        if (clicked === "true") {
+            ) === "true"
+        ) {
 
             document
                 .getElementById("checkButton")
@@ -332,17 +304,11 @@ window.addEventListener(
         }
 
 
-        /*
-           Если Premium уже активирован,
-           показываем соответствующий статус.
-        */
-
-        const premium =
+        if (
             localStorage.getItem(
                 "videoforge_premium"
-            );
-
-        if (premium === "true") {
+            ) === "true"
+        ) {
 
             document
                 .getElementById("status")
@@ -364,9 +330,9 @@ window.addEventListener(
 );
 
 
-/* ===================================
-   АКТИВАЦИЯ PREMIUM
-=================================== */
+/* =====================================
+   АКТИВИРОВАТЬ PREMIUM
+===================================== */
 
 function activatePremium() {
 
@@ -375,23 +341,19 @@ function activatePremium() {
         "true"
     );
 
-
     document
         .getElementById("status")
         .textContent =
         "👑 Premium активирован!";
-
 
     document
         .getElementById("checkButton")
         .textContent =
         "👑 Premium уже активирован";
 
-
     document
         .getElementById("checkButton")
         .disabled = true;
-
 }
 
 </script>
