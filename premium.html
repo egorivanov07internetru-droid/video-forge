@@ -56,8 +56,12 @@ h1 {
     font-size: 55px;
 }
 
+
+/* КНОПКА ПОЛУЧИТЬ PREMIUM */
+
 .telegram {
     display: block;
+
     width: 100%;
     margin-top: 30px;
     padding: 17px;
@@ -79,6 +83,9 @@ h1 {
     filter: brightness(1.1);
 }
 
+
+/* КНОПКА "Я ПОДПИСАЛСЯ" */
+
 .check {
     display: none;
 
@@ -92,7 +99,9 @@ h1 {
     border: 1px solid #8068ff;
     border-radius: 14px;
 
+    font-size: 15px;
     font-weight: bold;
+
     cursor: pointer;
 }
 
@@ -100,18 +109,33 @@ h1 {
     display: block;
 }
 
+.check:disabled {
+    opacity: 0.7;
+    cursor: default;
+}
+
+
+/* СТАТУС */
+
 #status {
-    text-align: center;
     margin-top: 12px;
+
+    text-align: center;
+
     color: #9cffb0;
+
     font-size: 14px;
 }
+
+
+/* ОПИСАНИЕ */
 
 .description {
     margin-top: 40px;
     padding: 28px;
 
     background: #101218;
+
     border: 1px solid #292d39;
     border-radius: 20px;
 }
@@ -123,21 +147,34 @@ h1 {
 
 .description p {
     color: #a4a8b4;
+
     font-size: 15px;
     line-height: 1.8;
 }
 
+
+/* НАЗАД */
+
 .back {
     display: block;
+
     margin-top: 25px;
 
     color: #9187b8;
+
     text-align: center;
     text-decoration: none;
+
     font-size: 13px;
 }
 
+.back:hover {
+    color: #bbaeff;
+}
+
+
 @media(max-width:600px) {
+
     h1 {
         font-size: 45px;
     }
@@ -145,11 +182,14 @@ h1 {
     .description {
         padding: 21px;
     }
+
 }
 </style>
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -161,6 +201,9 @@ h1 {
 
 
 <main>
+
+
+    <!-- ЗАГОЛОВОК -->
 
     <div class="title">
 
@@ -175,7 +218,7 @@ h1 {
     </div>
 
 
-    <!-- КНОПКА TELEGRAM -->
+    <!-- ЭТА КНОПКА ВСЕГДА ОСТАЁТСЯ -->
 
     <button
         id="telegramButton"
@@ -186,7 +229,7 @@ h1 {
     </button>
 
 
-    <!-- ПОЯВЛЯЕТСЯ ПОСЛЕ НАЖАТИЯ -->
+    <!-- ЭТА КНОПКА ПОЯВЛЯЕТСЯ ПОСЛЕ НАЖАТИЯ -->
 
     <button
         id="checkButton"
@@ -200,7 +243,7 @@ h1 {
     <div id="status"></div>
 
 
-    <!-- ТЕКСТ ПРО PREMIUM -->
+    <!-- ТОЛЬКО ОПИСАНИЕ PREMIUM -->
 
     <section class="description">
 
@@ -208,11 +251,13 @@ h1 {
             Premium — это...
         </h2>
 
+
         <p>
             Premium — это специальный статус пользователя
             VideoForge, который открывает дополнительные
             возможности сайта.
         </p>
+
 
         <p>
             Premium создан для пользователей, которые хотят
@@ -220,12 +265,14 @@ h1 {
             дальнейшее развитие VideoForge.
         </p>
 
+
         <p>
             Пользователи Premium получают доступ к функциям,
             которые могут быть недоступны обычным пользователям.
-            В дальнейшем количество Premium-возможностей может
-            увеличиваться вместе с развитием проекта.
+            В дальнейшем количество Premium-возможностей
+            может увеличиваться вместе с развитием проекта.
         </p>
+
 
         <p>
             Premium сохраняется на устройстве и используется
@@ -234,17 +281,21 @@ h1 {
             в будущих обновлениях.
         </p>
 
+
         <p>
             Получение Premium также помогает поддерживать
             разработку проекта, исправление ошибок,
             улучшение интерфейса и появление новых функций.
         </p>
 
+
         <p>
-            Чтобы получить Premium, нажми кнопку выше,
-            перейди в Telegram-канал VideoForge, подпишись
-            на него и затем вернись на эту страницу.
+            Чтобы получить Premium, нажми кнопку
+            «Получить Premium», перейди в Telegram-канал
+            VideoForge, подпишись на него и затем вернись
+            на эту страницу.
         </p>
+
 
     </section>
 
@@ -256,45 +307,59 @@ h1 {
         ← Вернуться в VideoForge
     </a>
 
+
 </main>
 
 
 <script>
 
-/* =====================================
+/* ==========================================
    ОТКРЫТЬ TELEGRAM
-===================================== */
+========================================== */
 
 function openTelegram() {
 
+    // Запоминаем, что кнопка была нажата
     localStorage.setItem(
         "telegram_button_clicked",
         "true"
     );
 
+
+    // Показываем кнопку подтверждения
     document
         .getElementById("checkButton")
         .classList
         .add("show");
 
+
+    // Открываем Telegram
     window.location.href =
         "https://t.me/VideoForge6767";
 }
 
 
-/* =====================================
-   ПОКАЗАТЬ КНОПКУ ПОСЛЕ ВОЗВРАЩЕНИЯ
-===================================== */
+/* ==========================================
+   ПРОВЕРКА СОСТОЯНИЯ ПРИ ОТКРЫТИИ
+========================================== */
 
 window.addEventListener(
     "load",
     function() {
 
-        if (
+        const clicked =
             localStorage.getItem(
                 "telegram_button_clicked"
-            ) === "true"
-        ) {
+            );
+
+
+        /*
+           Если пользователь уже нажимал
+           "Получить Premium", показываем
+           кнопку подтверждения.
+        */
+
+        if (clicked === "true") {
 
             document
                 .getElementById("checkButton")
@@ -304,16 +369,22 @@ window.addEventListener(
         }
 
 
-        if (
+        /*
+           Если Premium уже активирован
+        */
+
+        const premium =
             localStorage.getItem(
                 "videoforge_premium"
-            ) === "true"
-        ) {
+            );
+
+
+        if (premium === "true") {
 
             document
                 .getElementById("status")
                 .textContent =
-                "👑 Premium уже активирован!";
+                "👑 Premium активирован!";
 
             document
                 .getElementById("checkButton")
@@ -330,27 +401,34 @@ window.addEventListener(
 );
 
 
-/* =====================================
-   АКТИВИРОВАТЬ PREMIUM
-===================================== */
+/* ==========================================
+   АКТИВАЦИЯ PREMIUM
+========================================== */
 
 function activatePremium() {
 
+    // Сохраняем Premium
     localStorage.setItem(
         "videoforge_premium",
         "true"
     );
 
+
+    // Показываем статус
     document
         .getElementById("status")
         .textContent =
         "👑 Premium активирован!";
 
+
+    // Меняем кнопку
     document
         .getElementById("checkButton")
         .textContent =
         "👑 Premium уже активирован";
 
+
+    // Блокируем повторное нажатие
     document
         .getElementById("checkButton")
         .disabled = true;
