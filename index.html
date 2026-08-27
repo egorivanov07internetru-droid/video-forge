@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VideoForge AI</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% -15%, #352274 0%, #08090d 43%);
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+
+header {
+    height: 70px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #292d39;
+    background: rgba(8, 9, 13, 0.92);
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo span {
+    color: #9178ff;
+}
+
+.menu-button {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    border: 1px solid #292d39;
+    border-radius: 12px;
+
+    background: #12141b;
+    cursor: pointer;
+}
+
+.menu-button span {
+    width: 21px;
+    height: 2px;
+    background: white;
+    border-radius: 5px;
+}
+
+/* MENU */
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -310px;
+
+    width: 290px;
+    height: 100vh;
+
+    padding: 85px 20px 20px;
+
+    background: #101219;
+    border-left: 1px solid #292d39;
+
+    z-index: 20;
+
+    transition: right .25s ease;
+}
+
+.menu.open {
+    right: 0;
+}
+
+.close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #292d39;
+    border-radius: 10px;
+
+    background: #171923;
+    color: white;
+
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.menu h2 {
+    margin-top: 0;
+}
+
+.menu-button-item {
+    width: 100%;
+    margin-top: 12px;
+
+    padding: 14px;
+
+    border: 1px solid #292d39;
+    border-radius: 12px;
+
+    background: #171923;
+    color: white;
+
+    text-align: left;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.menu-button-item:hover {
+    background: #211d32;
+}
+
+.premium-menu {
+    border-color: #765cff;
+    background: linear-gradient(
+        135deg,
+        #211b42,
+        #151320
+    );
+    color: #c9beff;
+}
+
+/* MAIN */
+
+main {
+    max-width: 950px;
+    margin: auto;
+    padding: 55px 18px 80px;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0 0 15px;
+
+    font-size: clamp(42px, 8vw, 70px);
+
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #9278ff;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: auto;
+
+    color: #969cac;
+
+    line-height: 1.6;
+}
+
+/* CARD */
+
+.card {
+    margin-top: 40px;
+
+    padding: 22px;
+
+    background: linear-gradient(
+        180deg,
+        #141720,
+        #0f1117
+    );
+
+    border: 1px solid #292d39;
+    border-radius: 20px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: #c2c5cf;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+textarea,
+input,
+select {
+    width: 100%;
+
+    padding: 14px;
+
+    background: #090b10;
+    color: white;
+
+    border: 1px solid #292d39;
+    border-radius: 13px;
+
+    font: inherit;
+    outline: none;
+}
+
+textarea {
+    height: 175px;
+    resize: vertical;
+
+    line-height: 1.5;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    border-color: #8068ff;
+}
+
+.row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 16px;
+}
+
+/* BUTTON */
+
+.generate {
+    width: 100%;
+
+    margin-top: 16px;
+
+    padding: 15px;
+
+    border: 0;
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c5cff,
+            #6045e5
+        );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.generate:hover {
+    filter: brightness(1.1);
+}
+
+.generate:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* PROGRESS */
+
+.progress {
+    display: none;
+
+    margin-top: 20px;
+}
+
+.progress.show {
+    display: block;
+}
+
+.progress-line {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: #a1a5b1;
+
+    font-size: 12px;
+}
+
+.bar {
+    height: 9px;
+
+    margin-top: 10px;
+
+    background: #252833;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.fill {
+    width: 0%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7c5cff,
+            #b49fff
+        );
+
+    transition: width .25s;
+}
+
+/* PREMIUM SKIP */
+
+.skip {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 13px;
+
+    border: 1px solid #8068ff;
+    border-radius: 12px;
+
+    background: #171923;
+
+    color: #c5baff;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.skip:hover {
+    background: #211d31;
+}
+
+.skip small {
+    color: #8d82b9;
+}
+
+/* RESULT */
+
+.result {
+    display: none;
+
+    margin-top: 25px;
+}
+
+.result.show {
+    display: block;
+}
+
+video {
+    width: 100%;
+
+    max-height: 600px;
+
+    border-radius: 15px;
+
+    background: #000;
+
+    border: 1px solid #292d39;
+}
+
+.download {
+    display: block;
+
+    margin-top: 12px;
+
+    padding: 14px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    background: #20232e;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.note {
+    margin-top: 18px;
+
+    color: #747987;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .row {
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding-top: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        Video<span>Forge</span> AI
+    </div>
+
+    <button
+        class="menu-button"
+        onclick="openMenu()"
+        aria-label="Открыть меню"
+    >
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<!-- MENU -->
+
+<div
+    class="menu"
+    id="menu"
+>
+
+    <button
+        class="close"
+        onclick="closeMenu()"
+    >
+        ×
+    </button>
+
+    <h2>Меню</h2>
+
+    <button
+        class="menu-button-item premium-menu"
+        onclick="getPremium()"
+    >
+        👑 Получить Premium
+    </button>
+
+    <button
+        class="menu-button-item"
+        onclick="showAbout()"
+    >
+        ℹ️ О VideoForge
+    </button>
+
+</div>
+
+
+<!-- MAIN -->
+
+<main>
+
+<section class="hero">
+
+    <h1>
+        Создай <span>видео</span>
+    </h1>
+
+    <p>
+        Опиши, что должно происходить в видео,
+        выбери длительность — и AI создаст ролик.
+    </p>
+
+</section>
+
+
+<section class="card">
+
+    <label>
+        🎬 О чём будет видео?
+    </label>
+
+    <textarea
+        id="prompt"
+        placeholder="Например: огромный чёрный дракон летит над средневековым городом ночью, вокруг молнии, кинематографичная камера, реалистичный стиль..."
+    ></textarea>
+
+
+    <div class="row">
+
+        <div>
+
+            <label>
+                ⏱ Длительность
+            </label>
+
+            <input
+                id="duration"
+                type="number"
+                min="2"
+                max="10"
+                value="5"
+            >
+
+        </div>
+
+
+        <div>
+
+            <label>
+                📐 Формат
+            </label>
+
+            <select id="ratio">
+
+                <option value="16:9">
+                    16:9 — YouTube
+                </option>
+
+                <option value="9:16">
+                    9:16 — Shorts
+                </option>
+
+                <option value="1:1">
+                    1:1 — Квадрат
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="generate"
+        id="generateButton"
+        onclick="generateVideo()"
+    >
+        ✦ СГЕНЕРИРОВАТЬ ВИДЕО
+    </button>
+
+
+    <!-- PROGRESS -->
+
+    <div
+        class="progress"
+        id="progress"
+    >
+
+        <div class="progress-line">
+
+            <span id="statusText">
+                Подготовка...
+            </span>
+
+            <span id="percent">
+                0%
+            </span>
+
+        </div>
+
+
+        <div class="bar">
+
+            <div
+                class="fill"
+                id="fill"
+            ></div>
+
+        </div>
+
+
+        <button
+            class="skip"
+            onclick="skipLoading()"
+        >
+
+            ⚡ Пропустить загрузку
+
+            <br>
+
+            <small>
+                👑 PREMIUM!
+            </small>
+
+        </button>
+
+    </div>
+
+
+    <!-- RESULT -->
+
+    <div
+        class="result"
+        id="result"
+    >
+
+        <label>
+            🎥 Готовое видео
+        </label>
+
+        <video
+            id="videoPlayer"
+            controls
+            playsinline
+        ></video>
+
+        <a
+            id="downloadButton"
+            class="download"
+            download="videoforge-video.mp4"
+        >
+            ⬇ Скачать видео
+        </a>
+
+    </div>
+
+
+    <div class="note">
+
+        Скорость генерации зависит от сложности
+        видео и его длительности.
+
+        <br><br>
+
+        VideoForge использует облачную AI-модель
+        для создания видео.
+
+    </div>
+
+</section>
+
+</main>
+
+
+<script>
+
+/* =========================
+   MENU
+========================= */
+
+function openMenu() {
+
+    document
+        .getElementById("menu")
+        .classList
+        .add("open");
+
+}
+
+
+function closeMenu() {
+
+    document
+        .getElementById("menu")
+        .classList
+        .remove("open");
+
+}
+
+
+/* =========================
+   PREMIUM
+========================= */
+
+function getPremium() {
+
+    window.location.href = "premium.html";
+
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+function showAbout() {
+
+    alert(
+        "VideoForge AI\n\n" +
+        "Генератор видео по описанию.\n\n" +
+        "Premium позволяет использовать " +
+        "функцию пропуска ожидания генерации."
+    );
+
+}
+
+
+/* =========================
+   GENERATE
+========================= */
+
+async function generateVideo() {
+
+    const prompt =
+        document
+        .getElementById("prompt")
+        .value
+        .trim();
+
+
+    const duration =
+        Number(
+            document
+            .getElementById("duration")
+            .value
+        );
+
+
+    const ratio =
+        document
+        .getElementById("ratio")
+        .value;
+
+
+    if (!prompt) {
+
+        alert(
+            "Сначала опиши, какое видео нужно создать!"
+        );
+
+        return;
+
+    }
+
+
+    if (
+        duration < 2 ||
+        duration > 10
+    ) {
+
+        alert(
+            "Длительность должна быть от 2 до 10 секунд."
+        );
+
+        return;
+
+    }
+
+
+    const button =
+        document
+        .getElementById("generateButton");
+
+
+    const progress =
+        document
+        .getElementById("progress");
+
+
+    const result =
+        document
+        .getElementById("result");
+
+
+    const fill =
+        document
+        .getElementById("fill");
+
+
+    const percent =
+        document
+        .getElementById("percent");
+
+
+    const status =
+        document
+        .getElementById("statusText");
+
+
+    button.disabled = true;
+
+    progress.classList.add("show");
+
+    result.classList.remove("show");
+
+    fill.style.width = "0%";
+
+    percent.textContent = "0%";
+
+    status.textContent =
+        "Отправляем запрос...";
+
+
+    /*
+       MAGIC HOUR
+
+       Здесь будет запрос:
+
+       POST /generate
+
+       Наш server.js примет:
+
+       prompt
+       duration
+       ratio
+
+       и отправит их в Magic Hour.
+
+       API KEY хранится ТОЛЬКО
+       на сервере.
+    */
+
+
+    try {
+
+        const response = await fetch(
+            "/generate",
+            {
+
+                method: "POST",
+
+                headers: {
+                    "Content-Type":
+                        "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    prompt: prompt,
+
+                    duration: duration,
+
+                    aspect_ratio: ratio
+
+                })
+
+            }
+        );
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Ошибка сервера"
+            );
+
+        }
+
+
+        const data =
+            await response.json();
+
+
+        if (!data.videoUrl) {
+
+            throw new Error(
+                "Видео не найдено"
+            );
+
+        }
+
+
+        document
+            .getElementById("videoPlayer")
+            .src = data.videoUrl;
+
+
+        document
+            .getElementById("downloadButton")
+            .href = data.videoUrl;
+
+
+        fill.style.width = "100%";
+
+        percent.textContent = "100%";
+
+        status.textContent =
+            "Видео готово ✓";
+
+
+        result.classList.add("show");
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        alert(
+            "Magic Hour пока не подключён.\n\n" +
+            "Следующим шагом подключим server.js."
+        );
+
+        progress.classList.remove("show");
+
+    }
+
+
+    button.disabled = false;
+
+}
+
+
+/* =========================
+   PREMIUM SKIP
+========================= */
+
+function skipLoading() {
+
+    /*
+       Пока только интерфейс.
+
+       Проверку Premium сделаем
+       после подключения premium.html
+       и сервера.
+    */
+
+    const isPremium =
+        localStorage
+        .getItem("videoforge_premium");
+
+
+    if (isPremium !== "true") {
+
+        alert(
+            "👑 Эта функция доступна только Premium!\n\n" +
+            "Открой меню ☰ → Получить Premium."
+        );
+
+        return;
+
+    }
+
+
+    document
+        .getElementById("statusText")
+        .textContent =
+        "⚡ Premium: ожидание пропущено";
+
+
+    document
+        .getElementById("fill")
+        .style.width =
+        "100%";
+
+
+    document
+        .getElementById("percent")
+        .textContent =
+        "PREMIUM";
+
+}
+
+</script>
+
+</body>
+</html>
